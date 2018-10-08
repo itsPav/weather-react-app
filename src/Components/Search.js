@@ -6,7 +6,7 @@ class Search extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.getData(this.cityInput.current.value);
+        this.props.getWeatherData(this.cityInput.current.value);
         e.currentTarget.reset();
     }
 
@@ -14,11 +14,13 @@ class Search extends Component {
         return(
             <form className="search" onSubmit={this.handleSubmit}>
                 <input 
+                    className="searchInput"
                     type="text"
                     placeholder="Enter a City"
                     ref={this.cityInput}
                 />
                 <input 
+                    className="searchButton"
                     type="submit" 
                     value="Get Weather"
                 />

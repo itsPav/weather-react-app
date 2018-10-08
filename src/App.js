@@ -2,47 +2,62 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import apiKey from './Components/config/config';
+
+import Header from './Components/Header';
 import Search from './Components/Search';
+import Current from './Components/Current';
 import Weather from './Components/Weather';
 
 import './App.css';
 
 class App extends Component {
-      constructor(props) {
-        super(props);
-        this.getData = this.getData.bind(this);
+    constructor(props) {
+      super(props);
+      this.getWeatherData = this.getWeatherData.bind(this);
 
-        this.state = {
-          weatherData: '',
-          loadedData: false
-        }
-    }
+      this.state = {
+        currentWeather: '',
+        forecastWeather: '',
+        currentData: false,
+        forecastData: false
+      }
+  }
 
-  getData = (city) => {
-    // get data based on username
-    axios({
-        url: `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiKey}`,
+  getWeatherData = (city) => {
+    var weatherType = ['weather','forecast'];
+
+    weatherType.forEach(type => {
+      axios({
+        url: `https://api.openweathermap.org/data/2.5/${type}?q=${city}&units=metric&APPID=${apiKey}`,
         method: 'get'
-    }).then(response => {
-        // get the userID
-        // console.log(response.data);
-        this.setState({
-          weatherData: response.data,
-          loadedData: true
-        })
-
-    }).catch(error => { 
-        console.log('Error fetching and parsing data', error);
-    });
+      }).then(response => {
+          // get the userID
+          console.log(response.data);
+          if(type === 'weather') {
+            this.setState({
+              currentWeather: response.data,
+              currentData: true
+            });
+          } else if (type === "forecast") {
+            this.setState({
+              forecastWeather: response.data,
+              forecastData: true
+            });
+          }
+      }).catch(error => { 
+          console.log('Error fetching and parsing data', error);
+      });
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Weather</h1>
-        <Search getData={this.getData}/>
+        <Header />
+        <Search getWeatherData={this.getWeatherData}/>
 
-        {this.state.loadedData ? <Weather weatherData={this.state.weatherData}/> : null}
+        {this.state.currentData ? <Current weather={this.state.currentWeather}/> : null}
+        {this.state.forecastData ? <Weather forecastWeather={this.state.forecastWeather}/> : null}
           
       </div>
     );

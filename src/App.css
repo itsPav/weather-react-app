@@ -22,8 +22,58 @@
   to { transform: rotate(360deg); }
 }
 
+.header {
+  background-color: #aaa;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  margin: 0;
+  color: white;
+}
+
 .search {
   padding-bottom: 50px;
+}
+
+.fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.searchInput {
+  padding: 9px;
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  text-indent: 32px;
+}
+
+.searchButton {
+  color: white;
+  background-color: #C69C72;
+  border-radius: 5px;
+  border: 0;
+  padding: 10px;
+  margin: 10px;
+}
+
+.searchButton:hover {
+  background-color: #B48E68;
+}
+
+.searchButton:active {
+  background-color: #A3805E;
+}
+
+.currentWeather {
+  background-color: #C69C72;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .weatherContainer {
@@ -33,7 +83,7 @@
 }
 
 .weatherCard {
-  width: 250px;
+  width: 35%;
   border: 1px solid black;
   margin: 50px;
 }

@@ -1,18 +1,16 @@
 import React from 'react';
 import WeatherCard from './WeatherCard';
 
-const Weather = (weatherData) => {
+const Weather = (forecastWeather) => {
 
-    const data = weatherData;
+    const data = forecastWeather;
     let weatherCards = [];
 
-    console.log(data.weatherData);
+    // console.log(data.forecastWeather);
 
-    if(data.weatherData.list.length > 0) {
-        weatherCards = data.weatherData.list.map((weather, index) => {
-            if(index % 4 === 0) {
-                return <WeatherCard key={index} weather={weather}/>
-            }
+    if(data.forecastWeather.list.length > 0) {
+        weatherCards = data.forecastWeather.list.map((weather, index) => {
+            return <WeatherCard key={index} weather={weather}/>
         });
     }
 

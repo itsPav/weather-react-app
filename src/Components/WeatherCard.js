@@ -20,6 +20,7 @@ const WeatherCard = (weather) => {
             <p>{monthName} {dayNum}</p>
             <p>{weather.weather.weather[0].main}</p>
             <img src={imgIcon} alt={weather.weather.weather[0].description}></img>
+            
         </div>
     )
 }
