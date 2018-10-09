@@ -13,6 +13,7 @@ class Search extends Component {
     render() {
         return(
             <form className="search" onSubmit={this.handleSubmit}>
+            <i className="fas fa-search"></i>
                 <input 
                     className="searchInput"
                     type="text"

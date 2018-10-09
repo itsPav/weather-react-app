@@ -31,8 +31,7 @@ class App extends Component {
         url: `https://api.openweathermap.org/data/2.5/${type}?q=${city}&units=metric&APPID=${apiKey}`,
         method: 'get'
       }).then(response => {
-          // get the userID
-          console.log(response.data);
+          // console.log(response.data);
           if(type === 'weather') {
             this.setState({
               currentWeather: response.data,
