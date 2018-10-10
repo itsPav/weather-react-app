@@ -1,4 +1,5 @@
 import React from 'react';
+import weatherMapping from './config/weatherMapping';
 
 const WeatherCard = (weather) => {
     console.log(weather);
@@ -20,9 +21,9 @@ const WeatherCard = (weather) => {
     var dayName = date.toLocaleDateString('en-US', {weekday: 'long'});
     var dayNum = date.toLocaleDateString('en-US', {day: 'numeric'});
 
-    
-
-    // var imgIcon = `http://openweathermap.org/img/w/${weather.weather.weather[0].icon}.png`;
+    if(weather.weather[4].weather[0].id >= 801) {
+        var imgIcon = weatherMapping.cloudyDay;
+    }
 
     return(
         <div className="weatherCard">
@@ -30,7 +31,7 @@ const WeatherCard = (weather) => {
             <p>{dayName}</p>
             <p>{monthName} {dayNum}</p>
             <p>{weatherDescription}</p>
-            {/* <img src={imgIcon} alt={weather.weather.weather[0].description}></img> */}
+            <img src={imgIcon} alt={weather.weather[4].weather[0].description}></img>
         </div>
     )
 }

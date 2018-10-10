@@ -35,12 +35,10 @@
 
 .search {
   padding-bottom: 50px;
-}
-
-.fa-search { 
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  width: 300px;
+  height: 65px;
+  margin: auto;
+  display: inline-block;
 }
 
 .searchInput {
@@ -49,6 +47,18 @@
   border: 1px solid #aaa;
   border-radius: 5px;
   text-indent: 32px;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 30%;
+  padding: 10px;
+  color: #aaa;
+}
+
+.searchButtonDiv {
+  display: inline-block;
 }
 
 .searchButton {

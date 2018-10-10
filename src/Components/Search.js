@@ -13,18 +13,22 @@ class Search extends Component {
     render() {
         return(
             <form className="search" onSubmit={this.handleSubmit}>
-            <i className="fas fa-search"></i>
-                <input 
-                    className="searchInput"
-                    type="text"
-                    placeholder="Enter a City"
-                    ref={this.cityInput}
-                />
-                <input 
-                    className="searchButton"
-                    type="submit" 
-                    value="Get Weather"
-                />
+                <div className="searchArea">
+                <i className="searchIcon fas fa-search"></i>
+                    <input 
+                        className="searchInput"
+                        type="text"
+                        placeholder="Enter a City"
+                        ref={this.cityInput}
+                    />
+                </div>
+                <div className="searchButtonDiv">
+                    <input 
+                        className="searchButton"
+                        type="submit" 
+                        value="Get Weather"
+                    />
+                </div>
             </form>
         )
     }
