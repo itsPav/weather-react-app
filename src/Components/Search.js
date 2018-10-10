@@ -13,8 +13,8 @@ class Search extends Component {
     render() {
         return(
             <form className="search" onSubmit={this.handleSubmit}>
-                <div className="searchArea">
-                <i className="searchIcon fas fa-search"></i>
+                <div>
+                    <i className="searchIcon fas fa-search"></i>
                     <input 
                         className="searchInput"
                         type="text"

@@ -4,19 +4,20 @@ import weatherMapping from './config/weatherMapping';
 const Current = (weather) => {
 
     const data = weather.weather;
+    var imgIcon;
 
     if(data.weather[0].id >= 801) {
-        var imgIcon = weatherMapping.cloudyDay[0];
+        imgIcon = weatherMapping.cloudyDay[0];
     } else if (data.weather[0].id === 800) {
-        var imgIcon = weatherMapping.day;
+        imgIcon = weatherMapping.day;
     } else if(data.weather[0].id >= 701 && data.weather[0].id <= 781) {
-        var imgIcon = weatherMapping.day;
+        imgIcon = weatherMapping.day;
     } else if(data.weather[0].id >= 600 && data.weather[0].id <= 622) {
-        var imgIcon = weatherMapping.snowy1;
+        imgIcon = weatherMapping.snowy1;
     } else if(data.weather[0].id >= 500 && data.weather[0].id <= 531) {
-        var imgIcon = weatherMapping.rainy1;
+        imgIcon = weatherMapping.rainy1;
     } else if(data.weather[0].id >= 300 && data.weather[0].id <= 321) {
-        var imgIcon = weatherMapping.rainy4;
+        imgIcon = weatherMapping.rainy4;
     }
 
     return(
